@@ -13,7 +13,8 @@ app_ui = ui.page_sidebar(
     ui.navset_tab(
         ui.nav_panel("Temperatura", ui.card(output_widget("temp_plot"))),
         ui.nav_panel("Radiación", ui.card(output_widget("radiacion_plot")))
-    )
+    ),
+    title='Explorador ESOLMET'
 )
 
 
