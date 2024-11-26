@@ -11,8 +11,8 @@ columnas = ['To', 'Ib', 'Ig']
 app_ui = ui.page_sidebar(
     ui.sidebar(ui.input_select("var", "Selecciona una variable", choices=columnas)),
     ui.navset_tab(
-        ui.nav_panel("Temperatura", ui.card(output_widget("temp_plot"), full_screen=True)),
-        ui.nav_panel("Radiación", ui.card(output_widget("radiacion_plot"), full_screen=True))
+        ui.nav_panel("Temperatura", ui.card(output_widget("temp_plot"))),
+        ui.nav_panel("Radiación", ui.card(output_widget("radiacion_plot")))
     )
 )
 
