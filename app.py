@@ -6,7 +6,6 @@ from shinywidgets import render_widget, output_widget
 f = './data/Tmx.csv'
 tmx = pd.read_csv(f, index_col=0, parse_dates=True)
 
-columnas = ['To', 'Ib', 'Ig']
 
 app_ui = ui.page_sidebar(
     ui.sidebar(ui.input_switch('month', 'Promedio mensual', value=True)),
