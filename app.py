@@ -9,10 +9,10 @@ tmx = pd.read_csv(f, index_col=0, parse_dates=True)
 columnas = ['To', 'Ib', 'Ig']
 
 app_ui = ui.page_sidebar(
-    ui.sidebar(ui.input_switch("month", "Promedio mensual", value=True)),
+    ui.sidebar(ui.input_switch('month', 'Promedio mensual', value=True)),
     ui.navset_tab(
-        ui.nav_panel("Temperatura", ui.card(output_widget("temp_plot"))),
-        ui.nav_panel("Radiación", ui.card(output_widget("radiacion_plot")))
+        ui.nav_panel('Temperatura', ui.card(output_widget('temp_plot'))),
+        ui.nav_panel('Radiación', ui.card(output_widget('radiacion_plot')))
     ),
     title='Explorador ESOLMET'
 )
