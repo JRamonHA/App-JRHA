@@ -9,7 +9,7 @@ tmx = pd.read_csv(f, index_col=0, parse_dates=True)
 columnas = ['To', 'Ib', 'Ig']
 
 app_ui = ui.page_sidebar(
-    ui.sidebar(ui.input_select("var", "Selecciona una variable", choices=columnas)),
+    ui.sidebar(ui.input_switch("month", "Promedio mensual", value=True)),
     ui.navset_tab(
         ui.nav_panel("Temperatura", ui.card(output_widget("temp_plot"))),
         ui.nav_panel("Radiación", ui.card(output_widget("radiacion_plot")))
@@ -21,7 +21,7 @@ app_ui = ui.page_sidebar(
 def server(input, output, session):
     @render_widget
     def temp_plot():
-        df = tmx.resample('ME').mean()
+        df = tmx.resample('ME').mean().reset_index() if input.month() else tmx.reset_index()
         fig = px.line(
             df,
             x=df.index,
@@ -36,7 +36,7 @@ def server(input, output, session):
 
     @render_widget
     def radiacion_plot():
-        df = tmx.resample('ME').mean()
+        df = tmx.resample('ME').mean().reset_index() if input.month() else tmx.reset_index()
         fig = px.line(
             df,
             x=df.index,
