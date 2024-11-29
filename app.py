@@ -23,7 +23,7 @@ def server(input, output, session):
         df = tmx.resample('ME').mean().reset_index() if input.month() else tmx.reset_index()
         fig = px.line(
             df,
-            x=df.index,
+            x='time',
             y='To'
         )
         fig.update_layout(
@@ -38,7 +38,7 @@ def server(input, output, session):
         df = tmx.resample('ME').mean().reset_index() if input.month() else tmx.reset_index()
         fig = px.line(
             df,
-            x=df.index,
+            x='time',
             y=['Ib', 'Ig']
         )
         fig.update_layout(
