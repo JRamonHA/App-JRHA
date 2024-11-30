@@ -1,51 +1,82 @@
 import pandas as pd
 import plotly.express as px
-from shiny import App, ui
+from shiny import App, Inputs, reactive, render, ui
 from shinywidgets import render_widget, output_widget
-
-f = './data/Tmx.csv'
-tmx = pd.read_csv(f, index_col=0, parse_dates=True)
+import funciones as func
 
 
-app_ui = ui.page_sidebar(
-    ui.sidebar(ui.input_switch('month', 'Promedio mensual', value=True)),
-    ui.navset_tab(
-        ui.nav_panel('Temperatura', ui.card(output_widget('temp_plot'))),
-        ui.nav_panel('Radiación', ui.card(output_widget('radiacion_plot')))
+f = func.cargar_anio("2010")
+esol = pd.read_parquet(f)
+nombres = list(esol.columns)
+years = func.years  
+
+
+app_ui = ui.page_navbar(
+    ui.nav_spacer(),
+    ui.nav_panel(
+        "Visualizador",
+        ui.navset_card_underline(
+            ui.nav_panel("Anual", output_widget("plot_anual")),
+            ui.nav_panel("Promedio mensual", output_widget("plot_mensual")),
+            title="Meteorología",
+        ),
     ),
-    title='Explorador ESOLMET'
+    ui.nav_panel(
+        "Datos",
+        ui.card(ui.output_data_frame("data")),
+        {"class": "bslib-page-dashboard"},
+    ),
+    sidebar=ui.sidebar(
+        ui.input_select("year", "Año", choices=list(years), selected="2010"),
+        ui.input_select("variable", "Variable", choices=nombres),
+    ),
+    id="tabs",
+    title="Explorador ESOLMET",
+    fillable=True,
 )
 
 
-def server(input, output, session):
+def server(input: Inputs):
+    @reactive.calc()
+    def cargar_esol() -> pd.DataFrame:
+        year_selected = input.year()
+        f = func.cargar_anio(year_selected)
+        esol = pd.read_parquet(f)
+        return esol
+
     @render_widget
-    def temp_plot():
-        df = tmx.resample('ME').mean().reset_index() if input.month() else tmx.reset_index()
+    def plot_anual():
+        esol = cargar_esol()
+        var = input.variable()
+
+        df = esol.reset_index()
         fig = px.line(
             df,
-            x='time',
-            y='To'
-        )
-        fig.update_layout(
-            title='Temperatura',
-            yaxis_title='(°C)',
-            xaxis_title='Tiempo'
+            x='TIMESTAMP',
+            y=var,
+            title=f"{var} - {input.year()}",
+            labels={'TIMESTAMP': 'Fecha', var: var},
         )
         return fig
 
     @render_widget
-    def radiacion_plot():
-        df = tmx.resample('ME').mean().reset_index() if input.month() else tmx.reset_index()
+    def plot_mensual():
+        esol = cargar_esol()
+        var = input.variable()
+
+        df = esol.resample('ME').mean().reset_index()
         fig = px.line(
             df,
-            x='time',
-            y=['Ib', 'Ig']
-        )
-        fig.update_layout(
-            title='Radiación',
-            yaxis_title='(W/m2)',
-            xaxis_title='Tiempo'
+            x='TIMESTAMP',
+            y=var,
+            title=f"{var} - {input.year()}",
+            labels={'TIMESTAMP': 'Fecha', var: var},
         )
         return fig
+
+    @render.data_frame
+    def data():
+        return cargar_esol()
+
 
 app = App(app_ui, server)

@@ -1,3 +1,8 @@
 {
-  "python.defaultInterpreterPath": "C:/Users/hdeza/venvs/shiny/Scripts/python.exe"
+  "python.defaultInterpreterPath": "C:/Users/hdeza/venvs/shiny/Scripts/python.exe",
+  "workbench.editorAssociations": {
+    "*.copilotmd": "vscode.markdown.preview.editor",
+    "file:/**/*.parquet": "jupyter-data-wrangler",
+    "file:/**/*.csv": "jupyter-data-wrangler"
+  }
 }

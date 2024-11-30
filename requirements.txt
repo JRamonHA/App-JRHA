@@ -1,5 +1,6 @@
-pandas
-plotly
-matplotlib
 shiny
 shinywidgets
+pandas
+plotly
+fastparquet
+pyarrow
