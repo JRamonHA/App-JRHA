@@ -1,6 +1,7 @@
 shiny
 shinywidgets
+faicons
 pandas
-plotly
 fastparquet
 pyarrow
+plotly
