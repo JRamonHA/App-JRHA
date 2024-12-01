@@ -6,6 +6,7 @@ from shinywidgets import render_widget, output_widget
 import faicons
 import funciones as func
 
+
 f = func.cargar_anio("2010")
 esol = pd.read_parquet(f)
 nombres = list(esol.columns)
