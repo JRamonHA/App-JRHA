@@ -82,7 +82,7 @@ def server(input: Inputs):
             x='TIMESTAMP',
             y='mean',
             title=f"{var} - {input.year()}",
-            labels={'TIMESTAMP': 'Fecha', 'mean': f"{var}"},
+            labels={'TIMESTAMP': 'Fecha', 'mean': f"{var}"}
         )
 
         if var not in ['Ib', 'Ig']:
