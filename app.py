@@ -24,7 +24,6 @@ app_ui = ui.page_navbar(
     ui.nav_panel(
         "Datos",
         ui.card(ui.output_data_frame("data")),
-        {"class": "bslib-page-dashboard"},
     ),
     sidebar=ui.sidebar(
         ui.input_select("year", "Año", choices=list(years), selected="2010"),
