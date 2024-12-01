@@ -19,7 +19,7 @@ app_ui = ui.page_navbar(
         "Visualizador",
         ui.navset_card_underline(
             ui.nav_panel("Anual", output_widget("plot_anual")),
-            ui.nav_panel("Promedio mensual", output_widget("plot_mensual")),
+            ui.nav_panel("Mensual", output_widget("plot_mensual")),
             title="Meteorología",
         ),
     ),
@@ -74,14 +74,25 @@ def server(input: Inputs):
         esol = cargar_esol()
         var = input.variable()
 
-        df = esol.resample('ME').mean().reset_index()
+        df = esol.resample('ME').agg({var: ['mean', 'std']}).reset_index()
+        df.columns = ['TIMESTAMP', 'mean', 'std']
+
         fig = px.line(
             df,
             x='TIMESTAMP',
-            y=var,
+            y='mean',
             title=f"{var} - {input.year()}",
-            labels={'TIMESTAMP': 'Fecha', var: var},
+            labels={'TIMESTAMP': 'Fecha', 'mean': f"{var}"},
         )
+
+        if var not in ['Ib', 'Ig']:
+            fig.add_scatter(
+                x=df['TIMESTAMP'],
+                y=df['std'],
+                mode='lines',
+                name="Desviación estándar",
+                line=dict(dash='dot', color='red')
+            )
         return fig
 
     @render.data_frame
