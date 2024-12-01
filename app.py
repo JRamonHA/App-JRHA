@@ -1,9 +1,9 @@
+import io
 import pandas as pd
 import plotly.express as px
 from shiny import App, Inputs, reactive, render, ui
 from shinywidgets import render_widget, output_widget
 import faicons
-import io
 import funciones as func
 
 
