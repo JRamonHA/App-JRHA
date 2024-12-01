@@ -6,7 +6,6 @@ from shinywidgets import render_widget, output_widget
 import faicons
 import funciones as func
 
-
 f = func.cargar_anio("2010")
 esol = pd.read_parquet(f)
 nombres = list(esol.columns)
@@ -28,9 +27,9 @@ app_ui = ui.page_navbar(
         ui.card(
             ui.card_header(
                 ui.span(ui.output_text("file_title"),
-                    class_="me-auto"),
+                        class_="me-auto"),
                 ui.download_link("download_data", "Descargar archivo", icon=faicons.icon_svg("download"),
-                    class_="btn btn-primary btn-sm"),
+                                 class_="btn btn-primary btn-sm"),
                 class_="d-flex justify-content-between align-items-center"
             ),
             ui.output_data_frame("data"),
@@ -38,7 +37,8 @@ app_ui = ui.page_navbar(
     ),
     sidebar=ui.sidebar(
         ui.input_select("year", "Año", choices=list(years), selected="2010"),
-        ui.input_select("variable", "Variable", choices=nombres)
+        ui.input_date_range("daterange", "Rango de fechas", start="2010-01-01", end="2010-12-31"),
+        ui.input_select("variable", "Variable", choices=nombres),
     ),
     id="tabs",
     title="Explorador ESOLMET",
@@ -47,6 +47,14 @@ app_ui = ui.page_navbar(
 
 
 def server(input: Inputs):
+    @reactive.Effect
+    @reactive.event(input.year)
+    def actualizar_rango_fechas():
+        year_selected = int(input.year())
+        start_date = f"{year_selected}-01-01"
+        end_date = f"{year_selected}-12-31"
+        ui.update_date_range("daterange", start=start_date, end=end_date)
+
     @reactive.calc()
     def cargar_esol() -> pd.DataFrame:
         year_selected = input.year()
@@ -54,51 +62,58 @@ def server(input: Inputs):
         esol = pd.read_parquet(f)
         return esol
 
+    @reactive.calc()
+    def filtrar_por_fecha() -> pd.DataFrame:
+        esol = cargar_esol()
+        start_date, end_date = input.daterange()
+        start_date = pd.to_datetime(start_date)
+        end_date = pd.to_datetime(end_date)
+        return esol.loc[(esol.index >= start_date) & (esol.index <= end_date)]
+
     @render_widget
     def plot_anual():
-        esol = cargar_esol()
+        df = filtrar_por_fecha().reset_index()
         var = input.variable()
 
-        df = esol.reset_index()
+        df['TIMESTAMP'] = pd.to_datetime(df['TIMESTAMP'])
+        df.set_index('TIMESTAMP', inplace=True)
+
         fig = px.line(
             df,
-            x='TIMESTAMP',
+            x=df.index,
             y=var,
             title=f"{var} - {input.year()}",
             labels={'TIMESTAMP': 'Fecha', var: var},
         )
 
-        maximos = esol[var].resample('D').max()  
-        maximos_idx = maximos.index  
-        maximos_valor = maximos.values  
+        maximos = df[var].resample('D').max()
+        maximos_idx = maximos.index
+        maximos_valor = maximos.values
 
         fig.add_scatter(
-                x=maximos_idx, 
-                y=maximos_valor, 
-                mode='markers', 
-                name="Máximos diarios", 
-                marker=dict(color='red', size=6)
+            x=maximos_idx,
+            y=maximos_valor,
+            mode='markers',
+            name="Máximos diarios",
+            marker=dict(color='red', size=6)
         )
 
         return fig
 
     @render_widget
     def plot_mensual():
-        esol = cargar_esol()
-        var = input.variable()
-
-        df = esol.resample('ME').agg({var: ['mean', 'std']}).reset_index()
+        df = filtrar_por_fecha().resample('ME').agg({input.variable(): ['mean', 'std']}).reset_index()
         df.columns = ['TIMESTAMP', 'mean', 'std']
 
         fig = px.line(
             df,
             x='TIMESTAMP',
             y='mean',
-            title=f"{var} - {input.year()}",
-            labels={'TIMESTAMP': 'Fecha', 'mean': f"{var}"}
+            title=f"{input.variable()} - {input.year()}",
+            labels={'TIMESTAMP': 'Fecha', 'mean': f"{input.variable()}"}
         )
 
-        if var not in ['Ib', 'Ig']:
+        if input.variable() not in ['Ib', 'Ig']:
             fig.add_scatter(
                 x=df['TIMESTAMP'],
                 y=df['std'],
@@ -110,7 +125,7 @@ def server(input: Inputs):
 
     @render.data_frame
     def data():
-        df = cargar_esol().reset_index().rename(columns={"TIMESTAMP": "Fecha"})
+        df = filtrar_por_fecha().reset_index().rename(columns={"TIMESTAMP": "Fecha"})
         return df
 
     @render.text
@@ -119,11 +134,10 @@ def server(input: Inputs):
 
     @render.download(filename=lambda: f"ESOLMET_{input.year()}.csv")
     def download_data():
-        df = cargar_esol().reset_index()
-        df = df.rename(columns={"TIMESTAMP": "Fecha"}) 
+        df = filtrar_por_fecha().reset_index()
+        df = df.rename(columns={"TIMESTAMP": "Fecha"})
         with io.StringIO() as buf:
             df.to_csv(buf, index=False)
             yield buf.getvalue().encode()
-
 
 app = App(app_ui, server)
