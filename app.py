@@ -39,6 +39,7 @@ app_ui = ui.page_navbar(
     sidebar=ui.sidebar(
         ui.input_select("year", "Año", choices=list(years), selected="2010"),
         ui.input_select("variable", "Variable", choices=nombres),
+        ui.input_checkbox("maximos", "Valores máximos", value=False), 
     ),
     id="tabs",
     title="Explorador ESOLMET",
@@ -67,6 +68,20 @@ def server(input: Inputs):
             title=f"{var} - {input.year()}",
             labels={'TIMESTAMP': 'Fecha', var: var},
         )
+
+        if input.maximos():
+            maximos = esol[var].resample('D').max()  
+            maximos_idx = maximos.index  
+            maximos_valor = maximos.values  
+
+            fig.add_scatter(
+                x=maximos_idx, 
+                y=maximos_valor, 
+                mode='markers', 
+                name="Máximos diarios", 
+                marker=dict(color='red', size=6)
+            )
+
         return fig
 
     @render_widget
