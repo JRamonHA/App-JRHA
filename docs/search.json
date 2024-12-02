@@ -1,0 +1,58 @@
+[
+  {
+    "objectID": "index.html#scanme",
+    "href": "index.html#scanme",
+    "title": "Python",
+    "section": "ScanMe!",
+    "text": "ScanMe!\n\n\n\n\n Compartir y colaborar, principios fundamentales que nos llevarán a ser analistas de datos con Python."
+  },
+  {
+    "objectID": "index.html#section",
+    "href": "index.html#section",
+    "title": "Python",
+    "section": "",
+    "text": "“En la era de la digitalización, un lenguaje de programación [Python] es la herramienta que nos permite transformar datos en información para tomar decisiones.”"
+  },
+  {
+    "objectID": "index.html#objetivo",
+    "href": "index.html#objetivo",
+    "title": "Python",
+    "section": "Objetivo",
+    "text": "Objetivo\nDesarrollar habilidades de analista en Python para el análisis de datos.\nObjetivos específicos:\n\nPrácticas avanzadas de instalación y configuración de Python.\nEDA utilizando herramientas avanzadas.\nManejo y procesamiento avanzado de datos con Pandas.\nConocer y aplicar nuevas herramientas en la ciencia de datos."
+  },
+  {
+    "objectID": "index.html#estructura-del-curso",
+    "href": "index.html#estructura-del-curso",
+    "title": "Python",
+    "section": "Estructura del Curso",
+    "text": "Estructura del Curso\n\nSemana 1: Instalación y prácticas avanzadas.\nSemana 2: Análisis exploratorio de datos avanzado.\nSemana 3: Pandas avanzado.\nSemana 4: Nuevas herramientas en la ciencia de datos.\n\nContenido del curso en https://altamarmx.github.io/analista/\n\n\nInstalación y Prácticas Avanzadas\n\n\nInstalación de Python y configuración del entorno de trabajo.\nIntroducción a PowerShell y entornos virtuales.\nDesarrollo de paquetes en Python y adopción de buenas prácticas de programación.\n\n\nAnálisis Exploratorio de Datos Avanzado\n\n\nUso de Matplotlib para visualizaciones avanzadas.\nIntroducción a herramientas como Plotly, Bokeh y Altair para gráficos interactivos.\n\n\nPandas Avanzado\n\n\nTécnicas avanzadas de manipulación de datos con Pandas.\nUso de funciones como groupby, pivot_table y manejo de datos faltantes.\n\n\nNuevas Herramientas en la Ciencia de Datos\n\n\nEjecución de libretas desde la terminal y conversión a scripts.\nIntroducción a Quarto para la generación de reportes y presentaciones.\nUso de Shiny para aplicaciones interactivas."
+  },
+  {
+    "objectID": "index.html#material-evaluaciones-y-proyecto-final",
+    "href": "index.html#material-evaluaciones-y-proyecto-final",
+    "title": "Python",
+    "section": "Material, evaluaciones y proyecto final",
+    "text": "Material, evaluaciones y proyecto final\n\n\n\nDatos y notas del curso aquí\nEjercicios con datos diseñados para el curso\nCuatro evaluaciones calificadas automáticamente\nProyecto final"
+  },
+  {
+    "objectID": "index.html#pe-python-de-cero-a-analista",
+    "href": "index.html#pe-python-de-cero-a-analista",
+    "title": "Python",
+    "section": "PE Python: de cero a analista",
+    "text": "PE Python: de cero a analista\n\nPE Python: de cero a analista"
+  },
+  {
+    "objectID": "index.html#agradecimientos",
+    "href": "index.html#agradecimientos",
+    "title": "Python",
+    "section": "Agradecimientos",
+    "text": "Agradecimientos\n\n\n\n\n\n\n\n\n\n\nCeleste Morales\n\n\n\n\n\n\n\nDiego Canul\n\n\n\n\n\n\n\nGrecia Suárez\n\n\n\n\n\n\n\nKevin Alquicira\n\n\n\n\n\n\nGuadalupe Vadillo, Anabel de la Rosa, Adrian Sarmiento, Vicente Hinojosa, Andrea Martínez, Alejandra Ramos, Alejandra Morgado, Elith Ponce, Jackeline Bucio, Omar Terrazas, Mario Cano, Alonso Yescas, Yessica Acevedo, Gabriela Álvarez, Nazli Alcántara, JoséRra Hernández, Andrea Duque, Demián Bazán, Juan de Dios, Max Valdez, IER, UNAM,"
+  },
+  {
+    "objectID": "index.html#scanme-1",
+    "href": "index.html#scanme-1",
+    "title": "Python",
+    "section": "ScanMe!",
+    "text": "ScanMe!\n\n\n\n\n Compartir y colaborar, principios fundamentales que nos llevarán a ser analistas de datos con Python."
+  }
+]

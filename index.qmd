@@ -1,0 +1,125 @@
+---
+title: Python
+subtitle: De explorador de datos a analista
+lang: es
+
+author:
+- name: Guillermo Barrios del Valle
+  email: gbv@ier.unam.mx
+  affiliation: Instituto de Energías Renovables, UNAM
+format: 
+  revealjs:
+    slide-number: c/t  
+    touch: true
+---
+
+ 
+
+## ScanMe! 
+
+::: {.columns}
+::: {.column width="60%"}
+![](img/qrcode.png){width=110%}
+:::
+::: {.column width="40%"}
+
+<br>
+<span style="font-size: 1.5em;">**Compartir y colaborar**</span>, principios fundamentales que nos llevarán a ser analistas de datos con Python.
+
+:::
+:::
+
+
+## 
+
+<br>
+<br>
+<br>
+
+"En la era de la digitalización, un lenguaje de programación  <span style="color: red;">[Python]</span> es la herramienta que nos permite transformar datos en información para tomar decisiones." 
+
+## Objetivo
+
+
+Desarrollar habilidades de analista en Python para el análisis de datos.
+
+**Objetivos específicos:**
+
+- Prácticas avanzadas de instalación y configuración de Python.
+- EDA utilizando herramientas avanzadas.
+- Manejo y procesamiento avanzado de datos con Pandas.
+- Conocer y aplicar nuevas herramientas en la ciencia de datos.
+
+##  Estructura del Curso
+
+<br>
+
+**Semana 1:** Instalación y prácticas avanzadas.
+
+**Semana 2:** Análisis exploratorio de datos avanzado.
+
+**Semana 3:** Pandas avanzado.
+
+**Semana 4:** Nuevas herramientas en la ciencia de datos.
+
+<br>
+
+Contenido del curso en [https://altamarmx.github.io/analista/](https://altamarmx.github.io/analista/)
+
+
+
+::: {.notes}
+
+1. Instalación y Prácticas Avanzadas
+  - Instalación de Python y configuración del entorno de trabajo.
+  - Introducción a PowerShell y entornos virtuales.
+  - Desarrollo de paquetes en Python y adopción de buenas prácticas de programación.
+2. Análisis Exploratorio de Datos Avanzado
+  - Uso de Matplotlib para visualizaciones avanzadas.
+  - Introducción a herramientas como Plotly, Bokeh y Altair para gráficos interactivos.
+3. Pandas Avanzado
+  - Técnicas avanzadas de manipulación de datos con Pandas.
+  - Uso de funciones como `groupby`, `pivot_table` y manejo de datos faltantes.
+4. Nuevas Herramientas en la Ciencia de Datos
+  - Ejecución de libretas desde la terminal y conversión a scripts.
+  - Introducción a Quarto para la generación de reportes y presentaciones.
+  - Uso de Shiny para aplicaciones interactivas.
+:::
+
+## Material, evaluaciones y proyecto final
+
+::: {.columns}
+::: {.column width="40%"}
+
+1. Datos y notas del curso [aquí](https://altamarmx.github.io/analista/)
+1. Ejercicios con datos diseñados para el curso
+1. Cuatro evaluaciones calificadas automáticamente
+1. Proyecto final
+:::
+
+::: {.column width="60%"}
+![](img/libreta.png){width=130%}
+:::
+
+:::
+
+## PE Python: de cero a analista
+
+[![](img/PE.png)](https://www.coursera.org/specializations/python-cero-analista)
+
+[PE Python: de cero a analista](https://www.coursera.org/specializations/python-cero-analista)
+
+
+## ScanMe! 
+
+::: {.columns}
+::: {.column width="60%"}
+![](img/qrcode.png){width=110%}
+:::
+::: {.column width="40%"}
+
+<br>
+<span style="font-size: 1.5em;">**Compartir y colaborar**</span>, principios fundamentales que nos llevarán a ser analistas de datos con Python.
+
+:::
+:::
