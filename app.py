@@ -1,6 +1,6 @@
 import io
 import pandas as pd
-import plotly.express as px
+import plotly.graph_objects as go
 from shiny import App, Inputs, reactive, render, ui
 from shinywidgets import render_widget, output_widget
 import faicons
@@ -71,7 +71,7 @@ def server(input: Inputs):
         end_date = pd.to_datetime(end_date)
         return esol.loc[(esol.index >= start_date) & (esol.index <= end_date)]
 
-    @render_widget
+    @render_widget 
     def plot_anual():
         df = filtrar_por_fecha().reset_index()
         var = input.variable()
@@ -79,14 +79,23 @@ def server(input: Inputs):
         df['TIMESTAMP'] = pd.to_datetime(df['TIMESTAMP'])
         df.set_index('TIMESTAMP', inplace=True)
 
-        fig = px.line(
-            df,
+        fig = go.Figure()
+
+        fig.add_trace(go.Scatter(
             x=df.index,
-            y=var,
+            y=df[var],
+            mode='lines',
+            name=var,
+        ))
+
+        fig.update_layout(
             title=f"{var} - {input.year()}",
-            labels={'TIMESTAMP': 'Fecha', var: var},
+            xaxis_title="Fecha",
+            yaxis_title=var,
+            xaxis=dict(tickformat="%Y-%m-%d")
         )
         return fig
+
 
     @render_widget
     def plot_mensual():
@@ -98,46 +107,66 @@ def server(input: Inputs):
         }).reset_index()
         df.columns = ['TIMESTAMP', 'mean', 'std', 'max', 'min']
 
-        fig = px.scatter(
-            df,
-            x='TIMESTAMP',
-            y='mean',
-            title=f"{var} - {input.year()}",
-            labels={'TIMESTAMP': 'Fecha', 'mean': f"{var}"}
-        )
+        fig = go.Figure()
 
-        fig.add_scatter(
+        if var not in ['Ib', 'Ig']:
+            fig.add_trace(go.Scatter(
+                x=pd.concat([df['TIMESTAMP'], df['TIMESTAMP'][::-1]]),
+                y=pd.concat([df['mean'] + df['std'], (df['mean'] - df['std'])[::-1]]),
+                fill='toself',
+                fillcolor='rgba(169, 169, 169, 0.3)',
+                line=dict(color='rgba(255, 255, 255, 0)'),
+                name="Desviación estándar"
+            ))
+
+        fig.add_trace(go.Scatter(
+            x=df['TIMESTAMP'],
+            y=df['mean'],
+            mode='markers',
+            name='Promedio mensual',
+            marker=dict(color='blue', size=8)
+        ))
+
+        fig.add_trace(go.Scatter(
             x=df['TIMESTAMP'],
             y=df['max'],
             mode='lines',
             name="Máximos",
             line=dict(color='#16FF32', width=2)
-        )
+        ))
 
         if var not in ['Ib', 'Ig', 'WS']:
-            fig.add_scatter(
+            fig.add_trace(go.Scatter(
                 x=df['TIMESTAMP'],
                 y=df['min'],
                 mode='lines',
                 name="Mínimos",
                 line=dict(color='magenta', width=2)
-            )
+            ))
 
         if var not in ['Ib', 'Ig']:
-            fig.add_scatter(
+            fig.add_trace(go.Scatter(
                 x=df['TIMESTAMP'],
                 y=df['mean'] + df['std'],
                 mode='lines',
                 name="Desviación estándar +",
                 line=dict(dash='dot', color='grey')
-            )
-            fig.add_scatter(
+            ))
+
+            fig.add_trace(go.Scatter(
                 x=df['TIMESTAMP'],
                 y=df['mean'] - df['std'],
                 mode='lines',
                 name="Desviación estándar -",
                 line=dict(dash='dot', color='grey')
-            )
+            ))
+
+        fig.update_layout(
+            title=f"{var} - {input.year()}",
+            xaxis_title="Fecha",
+            yaxis_title=f"{var}",
+            xaxis=dict(tickformat="%Y-%m-%d")
+        )
         return fig
 
     @render.data_frame
