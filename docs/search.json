@@ -1,0 +1,58 @@
+[
+  {
+    "objectID": "index.html#scanme",
+    "href": "index.html#scanme",
+    "title": "Python 2025-1",
+    "section": "ScanMe!",
+    "text": "ScanMe!\n\n\n\n\n ¡Accede a la Web App! \nEscanea este código QR y échale un vistazo al Explorador ESOLMET."
+  },
+  {
+    "objectID": "index.html#web-app-explorador-esolmet",
+    "href": "index.html#web-app-explorador-esolmet",
+    "title": "Python 2025-1",
+    "section": "Web App: Explorador ESOLMET",
+    "text": "Web App: Explorador ESOLMET\nEl Explorador ESOLMET es una aplicación web interactiva para visualizar, analizar y descargar datos meteorológicos y solarimétricos de ESOLMET-IER.\n\nObjetivo general:\n\nFacilitar la comprensión de patrones climáticos y la exploración de datos históricos con el uso de gráficos dinámicos y herramientas de filtrado de datos."
+  },
+  {
+    "objectID": "index.html#características",
+    "href": "index.html#características",
+    "title": "Python 2025-1",
+    "section": "Características",
+    "text": "Características\n\nInteractividad: Gráficos dinámicos con capacidad de zoom, selección y visualización detallada.\nManejo de datos: Filtrado de datos basado en el año, rango de fechas y variable seleccionada.\nDescarga de datos: Función para exportar los datos filtrados en formato CSV."
+  },
+  {
+    "objectID": "index.html#explorador-esolmet",
+    "href": "index.html#explorador-esolmet",
+    "title": "Python 2025-1",
+    "section": "Explorador ESOLMET",
+    "text": "Explorador ESOLMET\n\nExplorador ESOLMET"
+  },
+  {
+    "objectID": "index.html#estructura",
+    "href": "index.html#estructura",
+    "title": "Python 2025-1",
+    "section": "Estructura",
+    "text": "Estructura\n\n\n\nVisualizador\n\nAnual: Gráficos de datos de un año específico.\n\nMensual: Estadísticas mensuales con promedios, máximos, mínimos y desviación estándar."
+  },
+  {
+    "objectID": "index.html#estructura-1",
+    "href": "index.html#estructura-1",
+    "title": "Python 2025-1",
+    "section": "Estructura",
+    "text": "Estructura\n\n\n\nDatos\n\nTabla interactiva de datos filtrados.\nDescarga de datos personalizada."
+  },
+  {
+    "objectID": "index.html#estructura-2",
+    "href": "index.html#estructura-2",
+    "title": "Python 2025-1",
+    "section": "Estructura",
+    "text": "Estructura\n\n\n\nBarra lateral:\n\nAño: Filtra datos por año.\n\nRango de fechas: Ajusta un rango dentro del año seleccionado.\nVariable: Selección del parámetro a analizar."
+  },
+  {
+    "objectID": "index.html#scanme-1",
+    "href": "index.html#scanme-1",
+    "title": "Python 2025-1",
+    "section": "ScanMe!",
+    "text": "ScanMe!\n\n\n\n\n ¡Accede a la Web App! \nEscanea este código QR y échale un vistazo al Explorador ESOLMET."
+  }
+]
