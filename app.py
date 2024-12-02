@@ -96,7 +96,6 @@ def server(input: Inputs):
         )
         return fig
 
-
     @render_widget
     def plot_mensual():
         esol = cargar_esol()
