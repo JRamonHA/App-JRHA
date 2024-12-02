@@ -12,6 +12,7 @@ format:
   revealjs:
     slide-number: c/t  
     touch: true
+    css: styles.css
 ---
 
 
@@ -26,44 +27,29 @@ format:
 <br>
 
 Escanea este código QR y échale un vistazo al Explorador ESOLMET.
-
 :::
 :::
 
 
 ## Web App: Explorador ESOLMET
-Desarrollar habilidades de analista en Python para el análisis de datos.
+El Explorador ESOLMET es una aplicación web interactiva para visualizar, analizar y descargar datos meteorológicos y solarimétricos de ESOLMET-IER.
 
-**Objetivos específicos:**
-- Prácticas avanzadas de instalación y configuración de Python.
-- EDA utilizando herramientas avanzadas.
-- Manejo y procesamiento avanzado de datos con Pandas.
-- Conocer y aplicar nuevas herramientas en la ciencia de datos.
+<br>
 
+**Objetivo general:**
 
-##  Estructura
-**Semana 1:** Instalación y prácticas avanzadas.
-
-**Semana 2:** Análisis exploratorio de datos avanzado.
-
-**Semana 3:** Pandas avanzado.
-
-**Semana 4:** Nuevas herramientas en la ciencia de datos.
+ - Facilitar la comprensión de patrones climáticos y la exploración de datos históricos con el uso de gráficos dinámicos y herramientas de filtrado de datos.
 
 
-## Características
-::: {.columns}
-::: {.column width="40%"}
-1. Datos y notas del curso [aquí](https://altamarmx.github.io/analista/)
-2. Ejercicios con datos diseñados para el curso
-3. Cuatro evaluaciones calificadas automáticamente
-4. Proyecto final
-:::
+##  Características
+1. **Interactividad:**
+Gráficos dinámicos con capacidad de zoom, selección y visualización detallada.
 
-::: {.column width="60%"}
-![](img/libreta.png){width=130%}
-:::
-:::
+2. **Manejo de datos:**
+Filtrado de datos basado en el año, rango de fechas y variable seleccionada.
+
+3. **Descarga de datos:**
+Función para exportar los datos filtrados en formato CSV.
 
 
 ## Explorador ESOLMET
@@ -71,6 +57,47 @@ Desarrollar habilidades de analista en Python para el análisis de datos.
 [![](img/ExpESOLMET.png)](https://jramonha.shinyapps.io/explorador-esolmet/)
 
 [Explorador ESOLMET](https://jramonha.shinyapps.io/explorador-esolmet/)
+
+
+##  Estructura {.estructura-slide}
+::: {.columns}
+::: {.column width="40%"}
+1. **Visualizador**  
+    - Anual: Gráficos de datos de un año específico.  
+    - Mensual: Estadísticas mensuales con promedios, máximos, mínimos y desviación estándar.
+:::
+
+::: {.column width="60%"}
+![](img/Visualizador.png)
+:::
+:::
+
+##  Estructura {.estructura-slide}
+::: {.columns}
+::: {.column width="40%"}   
+2. **Datos**
+    - Tabla interactiva de datos filtrados.
+    - Descarga de datos personalizada.  
+:::
+
+::: {.column width="60%"}
+![](img/Datos.png)
+:::
+:::
+
+##  Estructura {.estructura-slide}
+::: {.columns}
+::: {.column width="40%"}
+3. **Barra lateral**:
+    - Año: Filtra datos por año.  
+    - Rango de fechas: Ajusta un rango dentro del año seleccionado.
+    - Variable: Selección del parámetro a analizar.
+:::
+
+::: {.column width="60%"}
+![](img/Barra.png)
+:::
+:::
 
 
 ## ScanMe! 
@@ -84,6 +111,5 @@ Desarrollar habilidades de analista en Python para el análisis de datos.
 <br>
 
 Escanea este código QR y échale un vistazo al Explorador ESOLMET.
-
 :::
 :::

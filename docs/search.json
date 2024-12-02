@@ -74,20 +74,34 @@
     "href": "index.html#web-app-explorador-esolmet",
     "title": "Python 2025-1",
     "section": "Web App: Explorador ESOLMET",
-    "text": "Web App: Explorador ESOLMET\nDesarrollar habilidades de analista en Python para el análisis de datos.\nObjetivos específicos: - Prácticas avanzadas de instalación y configuración de Python. - EDA utilizando herramientas avanzadas. - Manejo y procesamiento avanzado de datos con Pandas. - Conocer y aplicar nuevas herramientas en la ciencia de datos."
+    "text": "Web App: Explorador ESOLMET\nEl Explorador ESOLMET es una aplicación web interactiva para visualizar, analizar y descargar datos meteorológicos y solarimétricos de ESOLMET-IER.\n\nObjetivo general:\n\nFacilitar la comprensión de patrones climáticos y la exploración de datos históricos con el uso de gráficos dinámicos y herramientas de filtrado de datos."
   },
   {
     "objectID": "index.html#estructura",
     "href": "index.html#estructura",
     "title": "Python 2025-1",
     "section": "Estructura",
-    "text": "Estructura\nSemana 1: Instalación y prácticas avanzadas.\nSemana 2: Análisis exploratorio de datos avanzado.\nSemana 3: Pandas avanzado.\nSemana 4: Nuevas herramientas en la ciencia de datos."
+    "text": "Estructura\n\n\n\nVisualizador\n\nAnual: Gráficos de datos de un año específico.\n\nMensual: Estadísticas mensuales con promedios, máximos, mínimos y desviación estándar."
   },
   {
     "objectID": "index.html#características",
     "href": "index.html#características",
     "title": "Python 2025-1",
     "section": "Características",
-    "text": "Características\n\n\n\nDatos y notas del curso aquí\nEjercicios con datos diseñados para el curso\nCuatro evaluaciones calificadas automáticamente\nProyecto final"
+    "text": "Características\n\nInteractividad: Gráficos dinámicos con capacidad de zoom, selección y visualización detallada.\nManejo de datos: Filtrado de datos basado en el año, rango de fechas y variable seleccionada.\nDescarga de datos: Función para exportar los datos filtrados en formato CSV."
+  },
+  {
+    "objectID": "index.html#estructura-1",
+    "href": "index.html#estructura-1",
+    "title": "Python 2025-1",
+    "section": "Estructura",
+    "text": "Estructura\n\n\n\nDatos\n\nTabla interactiva de datos filtrados.\nDescarga de datos personalizada."
+  },
+  {
+    "objectID": "index.html#estructura-2",
+    "href": "index.html#estructura-2",
+    "title": "Python 2025-1",
+    "section": "Estructura",
+    "text": "Estructura\n\n\n\nBarra lateral:\n\nAño: Filtra datos por año.\n\nRango de fechas: Ajusta un rango dentro del año seleccionado.\nVariable: Selección del parámetro a analizar."
   }
 ]
