@@ -115,7 +115,8 @@ def server(input: Inputs):
                 fill='toself',
                 fillcolor='rgba(169, 169, 169, 0.3)',
                 line=dict(color='rgba(255, 255, 255, 0)'),
-                name="Desviación estándar"
+                name="Desviación estándar",
+                showlegend=False
             ))
 
         fig.add_trace(go.Scatter(
