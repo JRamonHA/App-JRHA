@@ -86,41 +86,57 @@ def server(input: Inputs):
             title=f"{var} - {input.year()}",
             labels={'TIMESTAMP': 'Fecha', var: var},
         )
-
-        maximos = df[var].resample('D').max()
-        maximos_idx = maximos.index
-        maximos_valor = maximos.values
-
-        fig.add_scatter(
-            x=maximos_idx,
-            y=maximos_valor,
-            mode='markers',
-            name="Máximos diarios",
-            marker=dict(color='red', size=6)
-        )
-
         return fig
 
     @render_widget
     def plot_mensual():
-        df = filtrar_por_fecha().resample('ME').agg({input.variable(): ['mean', 'std']}).reset_index()
-        df.columns = ['TIMESTAMP', 'mean', 'std']
+        esol = cargar_esol()
+        var = input.variable()
 
-        fig = px.line(
+        df = esol.resample('ME').agg({
+            var: ['mean', 'std', 'max', 'min']
+        }).reset_index()
+        df.columns = ['TIMESTAMP', 'mean', 'std', 'max', 'min']
+
+        fig = px.scatter(
             df,
             x='TIMESTAMP',
             y='mean',
-            title=f"{input.variable()} - {input.year()}",
-            labels={'TIMESTAMP': 'Fecha', 'mean': f"{input.variable()}"}
+            title=f"{var} - {input.year()}",
+            labels={'TIMESTAMP': 'Fecha', 'mean': f"{var}"}
         )
 
-        if input.variable() not in ['Ib', 'Ig']:
+        fig.add_scatter(
+            x=df['TIMESTAMP'],
+            y=df['max'],
+            mode='lines',
+            name="Máximos",
+            line=dict(color='#16FF32', width=2)
+        )
+
+        if var not in ['Ib', 'Ig', 'WS']:
             fig.add_scatter(
                 x=df['TIMESTAMP'],
-                y=df['std'],
+                y=df['min'],
                 mode='lines',
-                name="Desviación estándar",
-                line=dict(dash='dot', color='red')
+                name="Mínimos",
+                line=dict(color='magenta', width=2)
+            )
+
+        if var not in ['Ib', 'Ig']:
+            fig.add_scatter(
+                x=df['TIMESTAMP'],
+                y=df['mean'] + df['std'],
+                mode='lines',
+                name="Desviación estándar +",
+                line=dict(dash='dot', color='grey')
+            )
+            fig.add_scatter(
+                x=df['TIMESTAMP'],
+                y=df['mean'] - df['std'],
+                mode='lines',
+                name="Desviación estándar -",
+                line=dict(dash='dot', color='grey')
             )
         return fig
 
