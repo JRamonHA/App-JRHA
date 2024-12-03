@@ -45,4 +45,4 @@ La aplicación incluye las siguientes funcionalidades:
    - Proporciona utilidades para cargar datos según el año y realizar cálculos específicos.
   
 ## Créditos
-Los datos pertenecen a la estación ![ESOLMET-IER](https://esolmet.ier.unam.mx/) y están destinados únicamente para fines educativos y de investigación.
+Los datos pertenecen a la estación [ESOLMET-IER](https://esolmet.ier.unam.mx/) y están destinados únicamente para fines educativos y de investigación.
