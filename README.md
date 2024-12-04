@@ -19,10 +19,10 @@ Los datos crudos de ESOLMET son procesados en seis pasos clave para asegurar su 
    - Los archivos `.csv` se leen con `pandas`, convirtiendo valores no numéricos en `NaN`.
 
 2. **Renombrado de columnas**:
-   - Las columnas reciben nombres más claros y descriptivos, como `'I_glo_Avg'` → `'Ib'` (radiación directa).
+   - Las columnas reciben nombres más claros y descriptivos, como `'I_dir_Avg'` → `'Ib'` (radiación solar directa).
 
-3. **Eliminación de columnas urrelevantes**:
-   - Columnas como `'RECORD'`, `'I_dir_Avg'` y `'I_uv_Avg'` se eliminan si están presentes.
+3. **Eliminación de columnas irrelevantes**:
+   - Columnas como `'RECORD'`, `'I_uv_Avg'` y `'Rain_mm_Tot'` se eliminan si están presentes.
 
 4. **Exportación de datos limpios**:
    - Los datos procesados se guardan en formato `.parquet` para un manejo más eficiente.
