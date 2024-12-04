@@ -7,12 +7,14 @@ import faicons
 import funciones as func
 
 
+# Cargar datos del año 2010
 f = func.cargar_anio("2010")
 esol = pd.read_parquet(f)
 nombres = list(esol.columns)
 years = func.years
 
 
+# Definición de la interfaz de usuario
 app_ui = ui.page_navbar(
     ui.nav_spacer(),
     ui.nav_panel(
@@ -47,7 +49,9 @@ app_ui = ui.page_navbar(
 )
 
 
+# Definición del servidor
 def server(input: Inputs):
+    # Actualiza el rango de fechas cuando se cambia el año seleccionado
     @reactive.Effect
     @reactive.event(input.year)
     def actualizar_rango_fechas():
@@ -56,6 +60,7 @@ def server(input: Inputs):
         end_date = f"{year_selected}-12-31"
         ui.update_date_range("daterange", start=start_date, end=end_date)
 
+    # Cargar datos del año seleccionado
     @reactive.calc()
     def cargar_esol() -> pd.DataFrame:
         year_selected = input.year()
@@ -63,6 +68,7 @@ def server(input: Inputs):
         esol = pd.read_parquet(f)
         return esol
 
+    # Filtrar datos por el rango de fechas seleccionado
     @reactive.calc()
     def filtrar_por_fecha() -> pd.DataFrame:
         esol = cargar_esol()
@@ -71,7 +77,8 @@ def server(input: Inputs):
         end_date = pd.to_datetime(end_date)
         return esol.loc[(esol.index >= start_date) & (esol.index <= end_date)]
 
-    @render_widget 
+    # Generar gráfico anual
+    @render_widget
     def plot_anual():
         df = filtrar_por_fecha().reset_index()
         var = input.variable()
@@ -96,6 +103,7 @@ def server(input: Inputs):
         )
         return fig
 
+    # Generar gráfico mensual
     @render_widget
     def plot_mensual():
         esol = cargar_esol()
@@ -169,15 +177,18 @@ def server(input: Inputs):
         )
         return fig
 
+    # Mostrar datos filtrados en una tabla
     @render.data_frame
     def data():
         df = filtrar_por_fecha().reset_index().rename(columns={"TIMESTAMP": "Fecha"})
         return df
 
+    # Generar el título del archivo basado en el año seleccionado
     @render.text
     def file_title():
         return f"ESOLMET_{input.year()}.csv"
 
+    # Permitir la descarga de los datos filtrados como un archivo CSV
     @render.download(filename=lambda: f"ESOLMET_{input.year()}.csv")
     def download_data():
         df = filtrar_por_fecha().reset_index()
@@ -186,4 +197,5 @@ def server(input: Inputs):
             df.to_csv(buf, index=False)
             yield buf.getvalue().encode()
 
+# Crear la aplicación con la interfaz de usuario y el servidor
 app = App(app_ui, server)
