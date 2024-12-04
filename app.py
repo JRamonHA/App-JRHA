@@ -108,7 +108,7 @@ def server(input: Inputs):
 
         fig = go.Figure()
 
-        if var not in ['Ib', 'Ig']:
+        if var not in ['Ib', 'Ig', 'Id']:
             fig.add_trace(go.Scatter(
                 x=pd.concat([df['TIMESTAMP'], df['TIMESTAMP'][::-1]]),
                 y=pd.concat([df['mean'] + df['std'], (df['mean'] - df['std'])[::-1]]),
@@ -135,7 +135,7 @@ def server(input: Inputs):
             line=dict(color='#16FF32', width=2)
         ))
 
-        if var not in ['Ib', 'Ig', 'WS']:
+        if var not in ['Ib', 'Ig', 'Id', 'WS']:
             fig.add_trace(go.Scatter(
                 x=df['TIMESTAMP'],
                 y=df['min'],
@@ -144,7 +144,7 @@ def server(input: Inputs):
                 line=dict(color='magenta', width=2)
             ))
 
-        if var not in ['Ib', 'Ig']:
+        if var not in ['Ib', 'Ig', 'Id']:
             fig.add_trace(go.Scatter(
                 x=df['TIMESTAMP'],
                 y=df['mean'] + df['std'],
