@@ -37,7 +37,7 @@ Los datos crudos de ESOLMET son procesados en seis pasos clave para asegurar su 
    - Utiliza librerías como `pandas` y `plotly` para el manejo y la visualización de datos.
 
 2. **`funciones.py`**:
-   - Proporciona utilidades para cargar datos según el año y realizar cálculos específicos.
+   - Proporciona utilidades para cargar datos según el año.
 
 3. **`cleaning.ipynb`**:
    - Implementa el proceso de limpieza y preprocesamiento de los datos antes de cargarlos en la aplicación.
