@@ -8,7 +8,9 @@ Puedes visitar la Web App con este enlace:
 
 ## Objetivo
 
-El objetivo principal de este proyecto es proporcionar una herramienta accesible y eficiente para explorar los datos meteorológicos y solarimétricos de ESOLMET-IER. La aplicación está diseñada para facilitar el análisis de tendencias de tiempo personalizables, ya sea diaria, semanal, mensual o anual, además de proporcionar promedios mensuales. También permite acceder a los datos en un formato descargable.
+El proyecto busca ofrecer una herramienta interactiva y accesible para explorar y analizar datos meteorológicos y solarimétricos recopilados por ESOLMET-IER. Diseñada para facilitar la comprensión de patrones climáticos y la exploración de datos históricos, esta aplicación web incorpora gráficos dinámicos y herramientas avanzadas de filtrado, que permiten visualizar tendencias personalizables en diferentes escalas de tiempo: diaria, semanal, mensual o anual.
+
+Además, la herramienta proporciona promedios mensuales y garantiza el acceso sencillo a los datos en un formato descargable, promoviendo su reutilización y análisis detallado.
 
 
 ## Proceso de limpieza de datos
