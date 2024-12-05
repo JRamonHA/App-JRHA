@@ -42,7 +42,7 @@ Los datos crudos de ESOLMET son procesados en seis pasos clave para asegurar su 
 2. **`funciones.py`**:
    - Proporciona utilidades para cargar datos según el año.
 
-3. **`cleaning.ipynb`**:
+3. **`limpieza.ipynb`**:
    - Implementa el proceso de limpieza y preprocesamiento de los datos antes de cargarlos en la aplicación.
 
 4. **`index.qmd`**:
