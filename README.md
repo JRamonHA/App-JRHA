@@ -15,16 +15,19 @@ El objetivo principal de este proyecto es proporcionar una herramienta accesible
 
 Los datos crudos de ESOLMET son procesados en seis pasos clave para asegurar su consistencia y preparación para análisis:
 
-1. **Carga y Conversión**:
+1. **Carga y conversión**:  
    - Los archivos `.csv` se leen con `pandas`, convirtiendo valores no numéricos en `NaN`.
 
-2. **Renombrado de columnas**:
+2. **Definición de índice temporal**:  
+   - La columna 0 se define como índice del DataFrame y se convierte a formato `datetime` utilizando `parse_dates=True`.
+
+3. **Renombrado de columnas**:  
    - Las columnas reciben nombres más claros y descriptivos, como `'I_dir_Avg'` → `'Ib'` (radiación solar directa).
 
-3. **Eliminación de columnas irrelevantes**:
+4. **Eliminación de columnas irrelevantes**:  
    - Columnas como `'RECORD'`, `'I_uv_Avg'` y `'Rain_mm_Tot'` se eliminan si están presentes.
 
-4. **Exportación de datos limpios**:
+5. **Exportación de datos limpios**:  
    - Los datos procesados se guardan en formato `.parquet` para un manejo más eficiente.
 
 
