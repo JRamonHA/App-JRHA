@@ -2,8 +2,8 @@
 
 Este proyecto es una aplicación web interactiva desarrollada con Shiny for Python. Permite visualizar, analizar y descargar datos meteorológicos y solarimétricos de la estación ESOLMET-IER, abarcando diferentes años y variables clave.
 
-Puedes visitar la Web App con este enlace:  
-<a href="https://jramonha.shinyapps.io/explorador-esolmet/" target="_blank">https://jramonha.shinyapps.io/explorador-esolmet/</a>
+Puedes visitar la Web App con este enlace:
+[https://jramonha.shinyapps.io/explorador-esolmet/](https://jramonha.shinyapps.io/explorador-esolmet/)
 
 
 ## Objetivo
