@@ -37,17 +37,17 @@ Los datos crudos de ESOLMET son procesados en seis pasos clave para asegurar su 
 
 ### Archivos principales
 
-1. **`app.py`**:
+1. **`[app.py](https://github.com/JRamonHA/Proyecto-Final/blob/main/app.py)`**: 
    - Contiene la lógica principal de la aplicación web, incluidas las definiciones de la interfaz de usuario y el servidor.
    - Utiliza librerías como `pandas` y `plotly` para el manejo y la visualización de datos.
 
-2. **`funciones.py`**:
+2. **`[funciones.py](https://github.com/JRamonHA/Proyecto-Final/blob/main/funciones.py)`**: 
    - Proporciona utilidades para cargar datos según el año.
 
-3. **`limpieza.ipynb`**:
+3. **`[limpieza.ipynb](https://github.com/JRamonHA/Proyecto-Final/blob/main/notebooks/limpieza.ipynb)`**: 
    - Implementa el proceso de limpieza y preprocesamiento de los datos antes de cargarlos en la aplicación.
 
-4. **`index.qmd`**:
+4. **`[index.qmd](https://github.com/JRamonHA/Proyecto-Final/blob/main/index.qmd)`**: 
    - Diapositivas sobre la presentación del proyecto.
 
 
