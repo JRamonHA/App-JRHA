@@ -130,7 +130,7 @@ def server(input: Inputs):
         fig.add_trace(go.Scatter(
             x=df['TIMESTAMP'],
             y=df['mean'],
-            mode='markers',
+            mode='lines',
             name='Promedio mensual',
             marker=dict(color='blue', size=8)
         ))
