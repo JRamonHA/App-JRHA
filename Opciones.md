@@ -1,0 +1,6 @@
+| Opción                  | Precio                      | Ventajas                                                                 | Desventajas                                                                 |
+|-------------------------|-----------------------------|--------------------------------------------------------------------------|-----------------------------------------------------------------------------|
+| Total Pass              | $1650/mes x 3 = $4950       | Incluye spas, gimnasios, clases (baile, pilates, box, etc.)              | Es el más caro                                                              |
+| Clases de baile         | Inscripción: $450, $400 efectivo + 8 clases: $1000 | Te gusta mucho bailar                                                    | Tiempo de viaje de 1hr                                                      |
+| Gimnasio                | $1800 (3 meses)             | Entrenas y eso te ayuda mucho. 24 horas abierto, te queda cerca.         | No es el gimnasio más grande                                                |
+| Clases de baile + Gimnasio | $1800 + $1400 = $3200 aprox. | Bailas y entrenas y sale más barato que el Total Pass.                   | Viajar más y pagar un poco más (además transporte), más tiempo, energía y concentración invertida en más cosas. |
